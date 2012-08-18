@@ -6,6 +6,7 @@ class BeaconsTable < ActiveRecord::Migration
       t.string :long
       t.string :description, :limit => 300
       t.integer :duration
+      t.timestamps
     end
   end
 

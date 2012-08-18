@@ -3,6 +3,4 @@ hackdenver
 
 hackdenver
 
-==========
-
-Chris is here
+Hello!

@@ -14,11 +14,13 @@
 ActiveRecord::Schema.define(:version => 20120818042719) do
 
   create_table "beacons", :force => true do |t|
-    t.integer "user_id"
-    t.string  "lat"
-    t.string  "long"
-    t.string  "description", :limit => 300
-    t.integer "duration"
+    t.integer  "user_id"
+    t.string   "lat"
+    t.string   "long"
+    t.string   "description", :limit => 300
+    t.integer  "duration"
+    t.datetime "created_at",                 :null => false
+    t.datetime "updated_at",                 :null => false
   end
 
   create_table "users", :force => true do |t|

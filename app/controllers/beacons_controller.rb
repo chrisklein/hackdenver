@@ -2,7 +2,9 @@ class BeaconsController < ApplicationController
 
   def index
     beacons = Beacon.all()
-
+    respond_to do |format|
+      format.json { render :json => beacons }
+    end
   end
 
   def create

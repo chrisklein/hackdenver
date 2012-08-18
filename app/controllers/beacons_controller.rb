@@ -15,20 +15,21 @@ class BeaconsController < ApplicationController
           :description => params[:description],
           :duration => params[:duration]
       )
+      render :text =>  {:status => 'success'}.to_json, :content_type => 'application/json'
     else
-      return {:status => 'failure'}.to_json
+      render :text =>  {:status => 'failure'}.to_json, :content_type => 'application/json'
     end
   end
 
   def show
     if not params[:id].blank?
       if beacon = Beacon.first(:conditions => ['id = ?', params[:id]])
-        return {:status => 'success', :description => beacon.description, :duration => beacon.duration, :created_at => beacon.created_at}.to_json
+        render :text => {:status => 'success', :description => beacon.description, :duration => beacon.duration, :created_at => beacon.created_at}.to_json, :content_type => 'application/json'
       else
-        return {:status => 'failure'}.to_json
+        render :text =>  {:status => 'failure'}.to_json, :content_type => 'application/json'
       end
     else
-      return {:status => 'failure'}.to_json
+      render :text =>  {:status => 'failure'}.to_json, :content_type => 'application/json'
     end
   end
 
@@ -36,6 +37,7 @@ class BeaconsController < ApplicationController
     if not params[:id].blank?
       if beacon = Beacon.first(['id = ?', params[:id]])
         beacon.destroy
+        render :text =>  {:status => 'success'}.to_json, :content_type => 'application/json'
       end
     end
   end
